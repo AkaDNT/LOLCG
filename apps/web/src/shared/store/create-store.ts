@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { rootReducer } from "./root-reducer";
+import { baseApi } from "./rtk-query/base-api";
 
 export const createStore = () => {
   return configureStore({
@@ -7,7 +8,7 @@ export const createStore = () => {
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         serializableCheck: false,
-      }),
+      }).concat(baseApi.middleware),
     devTools: process.env.NODE_ENV !== "production",
   });
 };
