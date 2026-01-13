@@ -1,6 +1,7 @@
 "use client";
 
 import { useGetCardsQuery } from "@/entities/card";
+import { RealtimeTest } from "@/widgets/realtime-test/ui/RealtimeTest";
 
 export default function Home() {
   const { data, isLoading, error } = useGetCardsQuery();
@@ -19,6 +20,7 @@ export default function Home() {
           </li>
         ))}
       </ul>
+      <RealtimeTest></RealtimeTest>
     </main>
   );
 }
